@@ -1,0 +1,25 @@
+SKU	Brand	Category	Year	Price
+111	ASUS	Gaming	2021	1299.99
+211	Apple	Personal	2020	1449.99
+311	Dell	Gaming	2020	1699
+411	HP	Touchscreen	2021	989
+511	SAMSUNG	Personal	2021	1164.15
+611	Microsoft	Touchscreen	2013	1199.99
+
+	Brand	Average
+	ASUS	1299.99
+	Apple	1449.99
+	Dell	1699
+	HP	989
+	Microsoft	1199.99
+	SAMSUNG	1164.15
+
+	Category	Average
+	Gaming	1499.49
+	Personal	1307.07
+	Touchscreen	1094.49
+
+	Year	SKU's
+2013	611 (Count: 1)
+2020	211 311 (Count: 2)
+2021	111 411 511 (Count: 3)
