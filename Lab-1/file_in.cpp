@@ -39,7 +39,7 @@ void calculateAveragePerBrand(vector<string> vBrand, vector<float> vPrice, ofstr
     }
 
     // Writing the headers to the output file
-    out_stream << "Brand\t\tAverage\n";
+    out_stream << "the average prices per brand:\nBrand\t\tAverage\n";
     
     // Declaring an iterator for map to iterate over the map
     map<string,vector<float> >::iterator it;
@@ -72,7 +72,7 @@ void calculateAveragePerCategory(vector<string> vCategory, vector<float> vPrice,
         categoryMap[vCategory[i]].push_back(vPrice[i]);
     
     // Writing the headers to the output file
-    out_stream << "Category\tAverage\n";
+    out_stream << "the average prices per category:\nCategory\tAverage\n";
     
     // Declaring an iterator for map to iterate over the map
     map<string,vector<float> >::iterator it;
@@ -96,6 +96,7 @@ void calculateAveragePerCategory(vector<string> vCategory, vector<float> vPrice,
     out_stream << endl;
 }
 
+//This function calculate the total conut of sku by special year
 void calculateSKUCount(vector<int> vYear,vector<int> vSKU, ofstream& out_stream)
 {
     // Declaring a map to store the sku's year wise
@@ -106,7 +107,7 @@ void calculateSKUCount(vector<int> vYear,vector<int> vSKU, ofstream& out_stream)
         yearMap[vYear[i]].push_back(vSKU[i]);
 
     // Writing the headers to the output file
-    out_stream << "Year\tSKU's\n";
+    out_stream << "the total conut of sku by special year:\nYear\tSKU's\n";
     
     // Declaring an iterator for map to iterate over the map
     map<int,vector<int> >::iterator it;

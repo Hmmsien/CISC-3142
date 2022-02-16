@@ -6,6 +6,7 @@ SKU	Brand	Category	Year	Price
 511	SAMSUNG	Personal	2021	1164.15
 611	Microsoft	Touchscreen	2013	1199.99
 
+the average prices per brand:
 Brand		Average
 ASUS		1299.99
 Apple		1449.99
@@ -14,13 +15,14 @@ HP		989
 Microsoft		1199.99
 SAMSUNG		1164.15
 
+the average prices per category:
 Category	Average
 Gaming		1499.49
 Personal		1307.07
 Touchscreen		1094.49
 
+the total conut of sku by special year:
 Year	SKU's
-2013	(Count: 1)
-611 2020	(Count: 2)
-211 311 2021	(Count: 3)
-111 411 511 
+2013	611 (Count: 1)
+2020	211 311 (Count: 2)
+2021	111 411 511 (Count: 3)
