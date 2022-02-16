@@ -1,2 +1,8 @@
-target: file_in.cpp data.csv output.txt
-	g++ file_in.cpp -o file_in
+output: file_in.0
+	g++ file_in.o -o output
+	
+file_in.o: file_in.cpp
+	g++ -c file_in.cpp
+	
+clean:
+	rm *.output
