@@ -2,11 +2,11 @@
 //CISC-3142
 //Lab 1
 
-/* Homework Objective: fix this program to match the requirements listed: 
-  1. successfully reads all lines of the input file
+/*1. successfully reads all lines of the input file (data.csv)
   2. calculate the average price per brand, average price per category 
-  3. writes to an output file
-  4. for each unique year, list the count of skus and also print out the skus as a list i.e. 2000 (3): 111, 211, 311 and make a new line per year.
+  3. writes to an output file (output.txt)
+  4. for each unique year, list the count of skus and also print out the skus as a list 
+        i.e. 2000 (3): 111, 211, 311 and make a new line per year.
 */
 
 #include <iostream>
@@ -19,14 +19,14 @@
 using namespace std;
 
 //replace all "," to space
-void replace(string&line, char at, char with) {
+void replace(string&line, char repl, char target) 
+{
     for(int i=0; i<line.length(); i++) {
-        if(line[i] == at)  
-            line[i] = with;
+        if(line[i] == repl)  
+            line[i] = target;
     }
 }
 
-//calculate the average price per brand
 // This function calculates the average prices per brand
 void calculateAveragePerBrand(vector<string> vBrand, vector<float> vPrice, ofstream& out_stream)
 {
@@ -34,20 +34,18 @@ void calculateAveragePerBrand(vector<string> vBrand, vector<float> vPrice, ofstr
     map<string,vector<float> > brandMap;
     
     // Storing the prices band wise
-    for(int i = 0; i < vBrand.size(); i++)
-    {
+    for(int i = 0; i < vBrand.size(); i++) {
         brandMap[vBrand[i]].push_back(vPrice[i]);
     }
 
     // Writing the headers to the output file
-    out_stream << "\tBrand\tAverage\n";
+    out_stream << "Brand\t\tAverage\n";
     
     // Declaring an iterator for map to iterate over the map
     map<string,vector<float> >::iterator it;
     
     // Iterating over the map
-    for(it = brandMap.begin(); it != brandMap.end(); ++it)
-    {
+    for(it = brandMap.begin(); it != brandMap.end(); ++it) {
         // Storing the current brand
         string curBrand = it->first;
         // Storing the prices of current brand
@@ -58,7 +56,7 @@ void calculateAveragePerBrand(vector<string> vBrand, vector<float> vPrice, ofstr
         float average = brandSum / curPrices.size();
         
         // Writing the brand name and it's average to the output file
-        out_stream << "\t" << curBrand << "\t" << average << "\n";
+        out_stream << curBrand << "\t\t" << average << "\n";
     }
     // Writing a newline to the output file
     out_stream << endl;
@@ -71,12 +69,10 @@ void calculateAveragePerCategory(vector<string> vCategory, vector<float> vPrice,
     map<string,vector<float> > categoryMap;
     // Storing the prices category wise
     for(int i = 0; i < vCategory.size(); i++)
-    {
         categoryMap[vCategory[i]].push_back(vPrice[i]);
-    }
-
+    
     // Writing the headers to the output file
-    out_stream << "\tCategory\tAverage\n";
+    out_stream << "Category\tAverage\n";
     
     // Declaring an iterator for map to iterate over the map
     map<string,vector<float> >::iterator it;
@@ -94,7 +90,7 @@ void calculateAveragePerCategory(vector<string> vCategory, vector<float> vPrice,
         float average = brandSum / curPrices.size();
 
         // Writing the category name and it's average to the output file
-        out_stream << "\t" << curCategory << "\t" << average << "\n";
+        out_stream << curCategory << "\t\t" << average << "\n";
     }
     // Writing a newline to the output file
     out_stream << endl;
@@ -107,12 +103,10 @@ void calculateSKUCount(vector<int> vYear,vector<int> vSKU, ofstream& out_stream)
     
     // Storing the sku's band wise
     for(int i = 0; i < vYear.size(); i++)
-    {
         yearMap[vYear[i]].push_back(vSKU[i]);
-    }
 
     // Writing the headers to the output file
-    out_stream << "\tYear\tSKU's\n";
+    out_stream << "Year\tSKU's\n";
     
     // Declaring an iterator for map to iterate over the map
     map<int,vector<int> >::iterator it;
@@ -127,19 +121,16 @@ void calculateSKUCount(vector<int> vYear,vector<int> vSKU, ofstream& out_stream)
         vector<int>::iterator sku_it;
 
         // Iterating over sku's for current year
-        for(sku_it = it->second.begin(); sku_it != it->second.end(); sku_it++)
-        {
+        for(sku_it = it->second.begin(); sku_it != it->second.end(); sku_it++) {
             // Writing the sku to the output file
             out_stream << *sku_it;
 
             // If this is not the last sku for current year, write a space to the output file
-            if(sku_it != it->second.end())
-            {
+            if(sku_it != it->second.end()) {
                 out_stream << " ";
             }
             // Else, write a tab to the output file
-            else
-            {
+            else {
                 out_stream << "\t";
             }
         }
@@ -148,7 +139,8 @@ void calculateSKUCount(vector<int> vYear,vector<int> vSKU, ofstream& out_stream)
     }
 }
 
-int main() {
+int main() 
+{
      // define variables
     int SKU;
     string brand;
